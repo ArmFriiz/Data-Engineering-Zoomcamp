@@ -1,22 +1,20 @@
 ### **Module 1 Homework: Docker & SQL**
 ### **Muhammad Faris Akbar**
 
-## Question 1. Question 1. What's the version of pip in the python:3.13 image? (1 point)
+## Question 1. What's the version of pip in the python:3.13 image? (1 point)
 Answer : 25.3
 Solution :
 1. Run docker using command:
-```
+```bash
 docker run -it --rm -p 8888:8888 -v "${pwd}:/app" --entrypoint=bash python:3.13
 ```
-2. After that, type 
-```
+2. After entering the Docker environment, enter the command
+```bash
 pip -V
 ```
 to check the pip version
 
-## Question 2. Understanding Docker networking and docker-compose
-
-Given the following `docker-compose.yaml`, what is the `hostname` and `port` that pgadmin should use to connect to the postgres database?
+## Question 2.Given the docker-compose.yaml, what is the hostname and port that pgadmin should use to connect to the postgres database? (1 point)
 
 ```yaml
 services:
@@ -50,18 +48,10 @@ volumes:
     name: vol-pgadmin_data
 ```
 
-- postgres:5433
-- localhost:5432
-- db:5433
-- postgres:5432
-- db:5432
+Answer: db:5432
 
-If multiple answers are correct, select any 
-
-
-## Prepare the Data
-
-Download the green taxi trips data for November 2025:
+Solution: 
+<img width="940" height="747" alt="image" src="https://github.com/user-attachments/assets/48c6d6d9-4e9b-4ac6-bbec-91279eef64f3" />
 
 ```bash
 wget https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet
@@ -198,6 +188,7 @@ My solution: <LINK>
 
 Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
+
 
 
 
