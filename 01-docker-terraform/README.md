@@ -59,86 +59,60 @@ AND lpep_pickup_datetime < '2025-12-01 00:00:00'
 AND trip_distance <= 1
 ```
 
-## Question 4. Longest trip for each day
+#### Question 4. Which was the pick up day with the longest trip distance? Only consider trips with trip_distance less than 100 miles. (1 point)
+- Answer : 2025-11-14
+- Solution :
+```SQL
+SELECT lpep_pickup_datetime AS "Tanggal Pickup", trip_distance AS "Jarak Trip"
+FROM public.green_taxi_trips_november_2025 
+WHERE trip_distance 
+IN 
+(SELECT MAX(trip_distance) FROM public.green_taxi_trips_november_2025 
+WHERE trip_distance < 100)
+```
 
-Which was the pick up day with the longest trip distance? Only consider trips with `trip_distance` less than 100 miles (to exclude data errors).
+#### Question 5. Which was the pickup zone with the largest total_amount (sum of all trips) on November 18th, 2025? (1 point)
+- Answer : East Harlem North
+- Solution :
+```SQL
+SELECT TZ."Zone" AS "Pickup Zone", COUNT(TZ."Zone") AS "Jumlah Pickup" 
+FROM public.green_taxi_trips_november_2025 GTT
+JOIN public.taxi_zone TZ
+ON GTT."PULocationID" = TZ."LocationID"
+WHERE 
+DATE(lpep_pickup_datetime) = '2025-11-18'
+GROUP BY "Pickup Zone"
+ORDER BY "Jumlah Pickup" DESC
+```
 
-Use the pick up time for your calculations.
+#### Question 6. For the passengers picked up in the zone named "East Harlem North" in November 2025, which was the drop off zone that had the largest tip? (1 point)
+- Answer : Yorkville West
+- Solution :
+```SQL
+SELECT 
+TZ_PU."Zone" AS "Pickup Zone", 
+TZ_DO."Zone" AS "Dropoff Zone", 
+MAX(GTT.tip_amount) AS "Jumlah Tip" 
 
-- 2025-11-14
-- 2025-11-20
-- 2025-11-23
-- 2025-11-25
+FROM public.green_taxi_trips_november_2025 GTT
 
+JOIN public.taxi_zone TZ_PU
+ON GTT."PULocationID" = TZ_PU."LocationID"
+JOIN public.taxi_zone TZ_DO
+ON GTT."DOLocationID" = TZ_DO."LocationID"
 
-## Question 5. Biggest pickup zone
+WHERE
+TO_CHAR(GTT."lpep_pickup_datetime", 'YYYY-MM') = '2025-11' AND
+TZ_PU."Zone" = 'East Harlem North'
 
-Which was the pickup zone with the largest `total_amount` (sum of all trips) on November 18th, 2025?
+GROUP BY "Pickup Zone", "Dropoff Zone"
+ORDER BY "Jumlah Tip"  DESC
+```
 
-- East Harlem North
-- East Harlem South
-- Morningside Heights
-- Forest Hills
-
-
-## Question 6. Largest tip
-
-For the passengers picked up in the zone named "East Harlem North" in November 2025, which was the drop off zone that had the largest tip?
-
-Note: it's `tip` , not `trip`. We need the name of the zone, not the ID.
-
-- JFK Airport
-- Yorkville West
-- East Harlem North
-- LaGuardia Airport
-
-
-## Terraform
-
-In this section homework we'll prepare the environment by creating resources in GCP with Terraform.
-
-In your VM on GCP/Laptop/GitHub Codespace install Terraform.
-Copy the files from the course repo
-[here](../../../01-docker-terraform/terraform/terraform) to your VM/Laptop/GitHub Codespace.
-
-Modify the files as necessary to create a GCP Bucket and Big Query Dataset.
-
-
-## Question 7. Terraform Workflow
-
-Which of the following sequences, respectively, describes the workflow for:
-1. Downloading the provider plugins and setting up backend,
-2. Generating proposed changes and auto-executing the plan
-3. Remove all resources managed by terraform`
-
-Answers:
-- terraform import, terraform apply -y, terraform destroy
-- teraform init, terraform plan -auto-apply, terraform rm
-- terraform init, terraform run -auto-approve, terraform destroy
-- terraform init, terraform apply -auto-approve, terraform destroy
-- terraform import, terraform apply -y, terraform rm
-
-
-## Submitting the solutions
-
-* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw1
-
+#### Question 7. Terraform Workflow
+Answer : terraform init, terraform apply -auto-approve, terraform destroy
 
 ## Learning in Public
-
-We encourage everyone to share what they learned. This is called "learning in public".
-
-### Why learn in public?
-
-- Accountability: Sharing your progress creates commitment and motivation to continue
-- Feedback: The community can provide valuable suggestions and corrections
-- Networking: You'll connect with like-minded people and potential collaborators
-- Documentation: Your posts become a learning journal you can reference later
-- Opportunities: Employers and clients often discover talent through public learning
-
-You can read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
-
-Don't worry about being perfect. Everyone starts somewhere, and people love following genuine learning journeys!
 
 ### Example post for LinkedIn
 
@@ -158,34 +132,3 @@ Following along with this amazing free course - who else is learning data engine
 
 You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
-
-### Example post for Twitter/X
-
-
-```
-🐳 Module 1 of Data Engineering Zoomcamp done!
-
-- Docker containers
-- Postgres & SQL
-- Terraform & GCP
-- NYC taxi data pipeline
-
-My solution: <LINK>
-
-Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
