@@ -12,7 +12,7 @@ pip -V
 ```
 to check the pip version
 
-### Question 2. Given the docker-compose.yaml, what is the hostname and port that pgadmin should use to connect to the postgres database? (1 point)
+#### Question 2. Given the docker-compose.yaml, what is the hostname and port that pgadmin should use to connect to the postgres database? (1 point)
 
 ```yaml
 services:
@@ -51,7 +51,7 @@ Answer : db:5432
 Solution: 
 <img width="940" height="550" alt="image" src="https://github.com/user-attachments/assets/48c6d6d9-4e9b-4ac6-bbec-91279eef64f3" />
 
-### Question 3. For the trips in November 2025, how many trips had a trip_distance of less than or equal to 1 mile? (1 point)
+#### Question 3. For the trips in November 2025, how many trips had a trip_distance of less than or equal to 1 mile? (1 point)
 Answer : 8,007
 
 Solution :
@@ -178,6 +178,7 @@ My solution: <LINK>
 
 Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
+
 
 
 
