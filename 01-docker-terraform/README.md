@@ -1,17 +1,18 @@
 ### **Module 1 Homework: Docker & SQL**
 ### **Muhammad Faris Akbar**
 
-## Question 1. Understanding Docker images
-
-Run docker with the `python:3.13` image. Use an entrypoint `bash` to interact with the container.
-
-What's the version of `pip` in the image?
-
-- 25.3
-- 24.3.1
-- 24.2.1
-- 23.3.1
-
+## Question 1. Question 1. What's the version of pip in the python:3.13 image? (1 point)
+Answer : 25.3
+Solution :
+1. Run docker using command:
+```
+docker run -it --rm -p 8888:8888 -v "${pwd}:/app" --entrypoint=bash python:3.13
+```
+2. After that, type 
+```
+pip -V
+```
+to check the pip version
 
 ## Question 2. Understanding Docker networking and docker-compose
 
@@ -197,6 +198,7 @@ My solution: <LINK>
 
 Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
+
 
 
 
