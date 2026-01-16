@@ -5,11 +5,10 @@
 ```bash
 docker run -it --rm -p 8888:8888 -v "${pwd}:/app" --entrypoint=bash python:3.13
 ```
-2. After entering the Docker environment, enter the command
+2. After entering the Docker environment, enter the command below to check the pip version
 ```bash
 pip -V
 ```
-to check the pip version
 
 #### Question 2. Given the docker-compose.yaml, what is the hostname and port that pgadmin should use to connect to the postgres database? (1 point)
 
@@ -45,15 +44,13 @@ volumes:
     name: vol-pgadmin_data
 ```
 
-Answer : db:5432
-
-Solution: 
+- Answer : db:5432
+- Solution: 
 <img width="940" height="550" alt="image" src="https://github.com/user-attachments/assets/48c6d6d9-4e9b-4ac6-bbec-91279eef64f3" />
 
 #### Question 3. For the trips in November 2025, how many trips had a trip_distance of less than or equal to 1 mile? (1 point)
-Answer : 8,007
-
-Solution :
+- Answer : 8,007
+- Solution :
 ```SQL
 SELECT count(1) AS "Jumlah Trip"
 FROM public.green_taxi_trips_november_2025 
@@ -177,6 +174,7 @@ My solution: <LINK>
 
 Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
+
 
 
 
