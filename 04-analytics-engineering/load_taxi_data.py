@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from google.cloud import storage
 from google.api_core.exceptions import NotFound, Forbidden
 import time
-import itertools
+# import itertools
 
 
 # Change this to your bucket name

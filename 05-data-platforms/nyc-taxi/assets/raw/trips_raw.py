@@ -135,8 +135,8 @@ def materialize():
   """
 
   # Get start and end dates from environment variables
-  start_date = os.environ.get('BRUIN_START_DATE')
-  end_date = os.environ.get('BRUIN_END_DATE')
+  start_date = os.environ.get('BRUIN_START_DATE', "")
+  end_date = os.environ.get('BRUIN_END_DATE', "")
 
   # Get taxi_type
   bruin_vars = json.loads(os.environ["BRUIN_VARS"])
@@ -144,7 +144,7 @@ def materialize():
   print(f"Taxi types: {taxi_types}")
 
   # Generate list of months to process
-  months = generate_month_range(start_date, end_date)
+  months = generate_month_range(start_date=start_date, end_date=end_date)
 
   # Download and combine parquet files
   all_dataframes = []

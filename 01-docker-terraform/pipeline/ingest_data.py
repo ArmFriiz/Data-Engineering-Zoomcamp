@@ -1,7 +1,7 @@
 import click
 import pandas as pd
 from sqlalchemy import create_engine
-from tqdm.auto import tqdm
+# from tqdm.auto import tqdm
 
 dtype = {
     "VendorID": "Int64",
@@ -55,7 +55,7 @@ def run(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, target_table, ch
 
     df_iter = pd.read_parquet(
         'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.parquet',
-        engine='pyarrow')
+        engine='auto')
     
     df_iter.head(0).to_sql(
         name=target_table,
