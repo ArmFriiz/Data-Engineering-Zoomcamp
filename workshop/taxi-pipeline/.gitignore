@@ -10,7 +10,7 @@ secrets.toml
 _local
 # ignore duckdb
 *.duckdb
-*.wal
+*.wal 
 
 # Git repository
 .git/
@@ -204,8 +204,3 @@ __marimo__/
 
 # macOS
 .DS_Store
-
-.cursor/
-.dlt/
-.copilotignore
-requirements.txt
