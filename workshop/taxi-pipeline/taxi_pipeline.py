@@ -17,8 +17,9 @@ def taxi_pipeline_rest_api_source():
                 "offset": 0,
                 "offset_param": "offset",
                 "limit_param": "limit",
-                "total_path": None,  # No total count, stop on empty page
-                "stop_after_empty_page": True,  # Stop when empty page returned
+                "total_path": None,
+                "stop_after_empty_page": True,
+                "maximum_offset": 1000,  # API cycles every 1000 records - set limit to 1 page
             },
         },
         "resources": [
@@ -35,9 +36,9 @@ def taxi_pipeline_rest_api_source():
 
 
 pipeline = dlt.pipeline(
-    pipeline_name='taxi_pipeline',
-    destination='duckdb',
-    dataset_name='nyc_taxi_data',
+    pipeline_name="taxi_pipeline",
+    destination="duckdb",
+    dataset_name="nyc_taxi_data",
     progress="log",
 )
 
