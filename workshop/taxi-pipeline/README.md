@@ -26,5 +26,4 @@
 <br></br>
 
 #### Learning in Public
-
-- https://www.linkedin.com/posts/m-faris-akbar-_modul-5-data-platforms-menggunakan-bruin-share-7433661704724713473-_5R5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2WdgQBFNQvyaHEVM4pwzRNofINDz0G8dY
+- 
