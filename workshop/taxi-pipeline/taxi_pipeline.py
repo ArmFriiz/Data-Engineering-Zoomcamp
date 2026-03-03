@@ -19,7 +19,7 @@ def taxi_pipeline_rest_api_source():
                 "limit_param": "limit",
                 "total_path": None,
                 "stop_after_empty_page": True,
-                "maximum_offset": 1000,  # API cycles every 1000 records - set limit to 1 page
+                "maximum_offset": 0,  # API cycles every 1000 records - set limit to 1 page
             },
         },
         "resources": [
