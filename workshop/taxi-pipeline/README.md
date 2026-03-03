@@ -21,6 +21,9 @@
 
 - Answer : $6,063.41
 - Solution :
+<img width="1621" height="442" alt="image" src="https://github.com/user-attachments/assets/5cea7f7a-7004-4a2d-8583-27ab52c82d35" />
+
+<br></br>
 
 #### Learning in Public
 
